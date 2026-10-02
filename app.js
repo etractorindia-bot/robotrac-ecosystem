@@ -24,12 +24,19 @@ form.addEventListener("submit", (event) => {
   }
 
   message.textContent = "";
-  const query = `${pickup.value} ${destination}`.toLowerCase();
+  const pickupLocation = pickup.value.trim().toLowerCase();
+  const dropoffLocation = destination.toLowerCase();
   let visibleCount = 0;
   rideCards.forEach((card) => {
-    const matches = !query || card.textContent.toLowerCase().split(/\s+/).some((word) =>
-      word.length > 3 && query.includes(word)
+    const stops = [...card.querySelectorAll(".ride-route > span:not(.route-line)")]
+      .map((stop) => stop.textContent.trim().toLowerCase());
+    const matchesPickup = stops[0] && (
+      pickupLocation.includes(stops[0]) || stops[0].includes(pickupLocation)
     );
+    const matchesDropoff = stops.at(-1) && (
+      dropoffLocation.includes(stops.at(-1)) || stops.at(-1).includes(dropoffLocation)
+    );
+    const matches = matchesPickup && matchesDropoff;
     card.hidden = !matches;
     if (matches) visibleCount += 1;
   });

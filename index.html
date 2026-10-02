@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Paid Lift helps you find a seat in a verified ride already going your way."
+    />
+    <meta name="theme-color" content="#f6f7f2" />
+    <title>Paid Lift — Your way, together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Paid Lift home">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span>paid<span class="brand-light">lift</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a class="active" href="#book">Find a ride</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#safety">Safety</a>
+      </nav>
+      <button class="profile-button" type="button" aria-label="Profile">RK</button>
+    </header>
+
+    <main>
+      <section class="hero" id="book">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="live-dot"></span> RIDE TOGETHER, GO FURTHER</span>
+          <h1>Your way,<br /><span>together.</span></h1>
+          <p>Find a seat with someone already heading your way. Better rides, shared fairly.</p>
+          <div class="trust-note">
+            <span class="shield-icon" aria-hidden="true">✓</span>
+            Verified people. Shared routes. Safer journeys.
+          </div>
+        </div>
+
+        <div class="booking-card">
+          <div class="card-heading">
+            <div>
+              <span class="card-kicker">YOUR NEXT RIDE</span>
+              <h2>Where are you going?</h2>
+            </div>
+            <span class="location-tag"><span aria-hidden="true">⌖</span> Bengaluru</span>
+          </div>
+
+          <form id="ride-form">
+            <div class="route-inputs">
+              <label class="route-field">
+                <span class="route-marker pickup-marker" aria-hidden="true"></span>
+                <span class="field-content">
+                  <span class="field-label">PICKUP</span>
+                  <input id="pickup" name="pickup" value="Indiranagar, Bengaluru" required />
+                </span>
+                <button class="locate-button" id="locate-button" type="button" aria-label="Use current location">◎</button>
+              </label>
+              <div class="route-connector" aria-hidden="true"></div>
+              <label class="route-field">
+                <span class="route-marker drop-marker" aria-hidden="true"></span>
+                <span class="field-content">
+                  <span class="field-label">DROP-OFF</span>
+                  <input id="dropoff" name="dropoff" placeholder="Where to?" required />
+                </span>
+              </label>
+            </div>
+            <div class="ride-options">
+              <label class="option-control">
+                <span class="option-icon" aria-hidden="true">◷</span>
+                <select id="ride-time" aria-label="Departure time">
+                  <option value="now">Leave now</option>
+                  <option value="later">Leave later</option>
+                </select>
+                <span class="select-chevron" aria-hidden="true">⌄</span>
+              </label>
+              <label class="option-control">
+                <span class="option-icon seats-icon" aria-hidden="true">♙</span>
+                <select id="seats" aria-label="Number of passengers">
+                  <option value="1">1 seat</option>
+                  <option value="2">2 seats</option>
+                  <option value="3">3 seats</option>
+                </select>
+                <span class="select-chevron" aria-hidden="true">⌄</span>
+              </label>
+            </div>
+            <button class="search-button" type="submit">
+              <span>Find rides going your way</span><span aria-hidden="true">↗</span>
+            </button>
+            <p class="form-message" id="form-message" aria-live="polite"></p>
+          </form>
+          <div class="card-footnote"><span aria-hidden="true">₹</span> Pay only your fair share of the ride</div>
+        </div>
+      </section>
+
+      <section class="matches-section" aria-labelledby="matches-title">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow section-eyebrow">GOOD RIDES, CLOSE BY</span>
+            <h2 id="matches-title">Going your way</h2>
+          </div>
+          <a href="#book" class="text-link">See all rides <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="ride-list" id="ride-list">
+          <article class="ride-card">
+            <div class="driver-avatar avatar-one" aria-hidden="true">AM</div>
+            <div class="driver-info">
+              <div class="driver-name">Ananya M. <span class="verified-badge" title="Verified driver">✓</span></div>
+              <div class="driver-rating"><span>★</span> 4.9 <span class="rating-count">(128 rides)</span></div>
+            </div>
+            <div class="ride-route">
+              <span>Indiranagar</span><span class="route-line"></span><span>Koramangala</span>
+            </div>
+            <div class="ride-time"><strong>8:45 AM</strong><span>Today · 3 seats</span></div>
+            <div class="ride-price"><strong>₹85</strong><span>your share</span></div>
+            <button class="join-button" type="button" data-driver="Ananya">Join ride <span aria-hidden="true">→</span></button>
+          </article>
+          <article class="ride-card">
+            <div class="driver-avatar avatar-two" aria-hidden="true">VS</div>
+            <div class="driver-info">
+              <div class="driver-name">Vikram S. <span class="verified-badge" title="Verified driver">✓</span></div>
+              <div class="driver-rating"><span>★</span> 4.8 <span class="rating-count">(76 rides)</span></div>
+            </div>
+            <div class="ride-route">
+              <span>Domlur</span><span class="route-line"></span><span>HSR Layout</span>
+            </div>
+            <div class="ride-time"><strong>9:10 AM</strong><span>Today · 2 seats</span></div>
+            <div class="ride-price"><strong>₹110</strong><span>your share</span></div>
+            <button class="join-button" type="button" data-driver="Vikram">Join ride <span aria-hidden="true">→</span></button>
+          </article>
+          <article class="ride-card">
+            <div class="driver-avatar avatar-three" aria-hidden="true">NK</div>
+            <div class="driver-info">
+              <div class="driver-name">Nikhil K. <span class="verified-badge" title="Verified driver">✓</span></div>
+              <div class="driver-rating"><span>★</span> 5.0 <span class="rating-count">(42 rides)</span></div>
+            </div>
+            <div class="ride-route">
+              <span>MG Road</span><span class="route-line"></span><span>Whitefield</span>
+            </div>
+            <div class="ride-time"><strong>9:30 AM</strong><span>Today · 1 seat</span></div>
+            <div class="ride-price"><strong>₹140</strong><span>your share</span></div>
+            <button class="join-button" type="button" data-driver="Nikhil">Join ride <span aria-hidden="true">→</span></button>
+          </article>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>No rides match those locations yet. Try a nearby pickup or drop-off.</p>
+      </section>
+
+      <section class="safety-strip" id="safety">
+        <div class="safety-icon" aria-hidden="true">✳</div>
+        <div class="safety-copy">
+          <strong>Your safety rides with you.</strong>
+          <span>Verified profiles, live trip sharing, and emergency support on every ride.</span>
+        </div>
+        <a href="tel:112" class="sos-button"><span class="sos-pulse"></span> SOS <span class="sos-label">Call 112</span></a>
+      </section>
+
+      <section class="how-section" id="how-it-works">
+        <div class="how-intro">
+          <span class="eyebrow section-eyebrow">LESS SOLO. MORE GO.</span>
+          <h2>Same direction.<br />Shared journey.</h2>
+        </div>
+        <div class="step">
+          <span class="step-number">01</span>
+          <h3>Choose your route</h3>
+          <p>Tell us where you're going and when you'd like to leave.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <h3>Meet your match</h3>
+          <p>Browse verified drivers already travelling your way.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <h3>Split the fare</h3>
+          <p>Share the journey and pay only your agreed contribution.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">P</span><span>paid<span class="brand-light">lift</span></span></a>
+      <span>Made for the way India moves.</span>
+      <span class="footer-country"><span aria-hidden="true">🇮🇳</span> India · ₹ INR</span>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
